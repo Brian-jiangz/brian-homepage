@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian | Xiamen University - PhD Researcher</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&family=Noto+Serif+SC:wght@400;700&display=swap');
+
+        :root {
+            --primary: #1a3c5e;
+            --accent: #2c6fbb;
+            --bg: #fafaf8;
+            --card-bg: #ffffff;
+            --text: #2d2d2d;
+            --muted: #6b7280;
+            --border: #e5e7eb;
+            --highlight: #eff6ff;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Source Sans Pro', 'Noto Serif SC', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, #0f2840 100%);
+            color: white;
+            padding: 60px 0 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .university-badge {
+            display: inline-block;
+            border: 1px solid rgba(255,255,255,0.3);
+            padding: 4px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            color: rgba(255,255,255,0.85);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            font-size: 18px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 6px;
+        }
+
+        .research-keywords {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .research-keywords span {
+            background: rgba(255,255,255,0.12);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 5px 16px;
+            border-radius: 4px;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+        }
+
+        nav ul {
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+        }
+
+        nav a {
+            display: block;
+            padding: 14px 24px;
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            transition: color 0.2s, border-bottom 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Main */
+        main {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 50px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-child { border-bottom: none; }
+
+        h2 {
+            font-family: 'Playfair Display', 'Noto Serif SC', serif;
+            font-size: 28px;
+            color: var(--primary);
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 18px;
+            color: var(--primary);
+            margin: 24px 0 10px;
+        }
+
+        p { margin-bottom: 14px; color: #444; }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        .profile-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            margin: 0 auto 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 52px;
+            color: white;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .profile-card h3 {
+            margin: 0 0 4px;
+            font-size: 20px;
+        }
+
+        .profile-card .role {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .profile-card .affiliation {
+            margin-top: 12px;
+            font-size: 13px;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        .contact-links {
+            margin-top: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 13px;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .contact-links a:hover { text-decoration: underline; }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 8px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+            padding: 20px 24px;
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            transition: box-shadow 0.2s;
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 26px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 2px solid white;
+            box-shadow: 0 0 0 2px var(--accent);
+        }
+
+        .timeline-date {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+        }
+
+        .timeline-item h3 {
+            margin: 0 0 8px;
+            font-size: 17px;
+        }
+
+        .timeline-item p {
+            font-size: 14px;
+            margin: 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: var(--highlight);
+            color: var(--accent);
+            padding: 2px 10px;
+            border-radius: 3px;
+            font-size: 12px;
+            margin: 4px 4px 0 0;
+            font-weight: 600;
+        }
+
+        .tag.completed { background: #ecfdf5; color: #059669; }
+        .tag.in-progress { background: #fef3c7; color: #d97706; }
+        .tag.planned { background: #f3f4f6; color: #6b7280; }
+
+        /* Research Detail */
+        .research-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 24px;
+        }
+
+        .research-card h3 {
+            margin-top: 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .icon {
+            width: 32px;
+            height: 32px;
+            background: var(--highlight);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            margin: 16px 0 8px;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 13px;
+            color: var(--muted);
+            margin-bottom: 6px;
+        }
+
+        .progress-bar {
+            height: 8px;
+            background: #f3f4f6;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--accent), #4f9cf7);
+            transition: width 1s ease;
+        }
+
+        /* Publications */
+        .pub-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .pub-list li {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 15px;
+        }
+
+        .pub-list li:last-child { border-bottom: none; }
+
+        .pub-list .authors {
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .pub-list .journal {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 32px; }
+            .about-grid { grid-template-columns: 1fr; }
+            nav a { padding: 12px 14px; font-size: 12px; }
+            .research-keywords { gap: 8px; }
+            section { padding: 35px 0; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-content">
+        <div class="university-badge">Xiamen University · 厦门大学</div>
+        <h1>Brian</h1>
+        <div class="subtitle">Ph.D. Candidate · College of Ocean and Earth Sciences</div>
+        <div class="subtitle" style="font-size: 15px; margin-top: 4px;">博士研究生 · 海洋与地球学院</div>
+        <div class="research-keywords">
+            <span>CESM</span>
+            <span>CoSiNE</span>
+            <span>Biogeochemical Modeling</span>
+            <span>Carbon-Nitrogen Cycling</span>
+            <span>Earth System Science</span>
+        </div>
+    </div>
+</header>
+
+<nav>
+    <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#progress">Progress</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#contact">Contact</a></li>
+    </ul>
+</nav>
+
+<main>
+
+    <!-- About -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-grid">
+            <div class="profile-card">
+                <div class="avatar">B</div>
+                <h3>Brian</h3>
+                <div class="role">Ph.D. Candidate</div>
+                <div class="affiliation">
+                    College of Ocean and Earth Sciences<br>
+                    Xiamen University (XMU)<br>
+                    厦门大学 · 海洋与地球学院
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:brian@stu.xmu.edu.cn">📧 brian@stu.xmu.edu.cn</a>
+                    <a href="#">🔬 Google Scholar</a>
+                    <a href="#">🐙 GitHub</a>
+                </div>
+            </div>
+            <div>
+                <p>
+                    I am a Ph.D. candidate at the College of Ocean and Earth Sciences, Xiamen University. 
+                    My research focuses on <strong>Earth System Modeling</strong>, specifically the coupling of the 
+                    <strong>Community Earth System Model (CESM)</strong> with the <strong>Carbon, Silicate, 
+                    Nitrogen Ecosystem (CoSiNE)</strong> model to better understand marine biogeochemical 
+                    processes and their interactions with the climate system.
+                </p>
+                <p>
+                    My work aims to improve the representation of carbon and nitrogen cycling in ocean 
+                    ecosystem models, contributing to more accurate climate projections and a deeper 
+                    understanding of the ocean's role in the global carbon cycle.
+                </p>
+                <h3>Research Interests</h3>
+                <p>
+                    🔹 Earth System Modeling & Climate Dynamics<br>
+                    🔹 Marine Biogeochemistry & Ecosystem Modeling<br>
+                    🔹 Carbon-Nitrogen-Silicate Coupling in Ocean Systems<br>
+                    🔹 Model Development, Validation & Sensitivity Analysis<br>
+                    🔹 Ocean-Atmosphere Interactions
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+        <h2>Research Focus</h2>
+
+        <div class="research-card">
+            <h3><span class="icon">🌊</span> CESM-CoSiNE Coupling</h3>
+            <p>
+                The core of my doctoral research: coupling the <strong>Community Earth System Model (CESM)</strong> 
+                with the <strong>CoSiNE (Carbon, Silicate, Nitrogen Ecosystem)</strong> biogeochemical module. 
+                This coupled framework enables comprehensive simulation of marine ecosystem dynamics, 
+                including phytoplankton growth, nutrient cycling, and carbon export in the ocean.
+            </p>
+            <h3>Key Objectives</h3>
+            <p>
+                ① <strong>Model Coupling</strong> — Integrating CoSiNE into CESM's ocean component (POP/MPAS) 
+                to replace or complement the default marine biogeochemistry module.<br><br>
+                ② <strong>Parameter Optimization</strong> — Calibrating ecosystem parameters against 
+                satellite observations (SeaWiFS, MODIS) and in-situ datasets (BGC-Argo, GEOTRACES).<br><br>
+                ③ <strong>Process Understanding</strong> — Investigating how nutrient limitation (N, Si, Fe) 
+                controls primary production and the biological carbon pump across different ocean basins.<br><br>
+                ④ <strong>Climate Sensitivity</strong> — Assessing how marine biogeochemical feedbacks 
+                influence climate projections under various emission scenarios (SSP).
+            </p>
+        </div>
+
+        <div class="research-card">
+            <h3><span class="icon">🧮</span> Technical Stack</h3>
+            <p>
+                <strong>Models:</strong> CESM2 / CoSiNE / POP2<br>
+                <strong>Languages:</strong> Fortran, Python, NCL, CDO/NCO<br>
+                <strong>Platforms:</strong> Linux HPC (Slurm/PBS), NCAR Cheyenne/Casper<br>
+                <strong>Data:</strong> NetCDF, HDF5, satellite remote sensing products<br>
+                <strong>Visualization:</strong> Matplotlib, Cartopy, NCL, Ferret
+            </p>
+        </div>
+    </section>
+
+    <!-- Progress -->
+    <section id="progress">
+        <h2>Research Progress</h2>
+
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024 – Present</div>
+                <h3>Phase 3: Coupled Model Validation & Sensitivity Experiments</h3>
+                <p>
+                    Running long-term simulations under historical and projected climate scenarios. 
+                    Conducting sensitivity analysis on key biogeochemical parameters. 
+                    Validating model outputs against observational climatologies.
+                </p>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Overall Progress</span>
+                        <span>45%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="tag in-progress">In Progress</span>
+                    <span class="tag">Sensitivity Analysis</span>
+                    <span class="tag">Model Validation</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2023 – 2024</div>
+                <h3>Phase 2: CESM-CoSiNE Coupling Implementation</h3>
+                <p>
+                    Successfully coupled CoSiNE biogeochemical module into CESM2 framework. 
+                    Implemented nutrient cycling pathways (C-N-Si-Fe). 
+                    Debugged and resolved coupling interface issues between ocean physics and biogeochemistry.
+                </p>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Completion</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="tag completed">Completed</span>
+                    <span class="tag">Model Coupling</span>
+                    <span class="tag">Fortran Development</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">2022 – 2023</div>
+                <h3>Phase 1: Literature Review & Standalone CoSiNE Calibration</h3>
+                <p>
+                    Comprehensive review of marine biogeochemical models and CESM architecture. 
+                    Ran standalone CoSiNE experiments to understand ecosystem dynamics and parameter 
+                    sensitivities before coupling.
+                </p>
+                <div class="progress-container">
+                    <div class="progress-label">
+                        <span>Completion</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div>
+                    <span class="tag completed">Completed</span>
+                    <span class="tag">Literature Review</span>
+                    <span class="tag">Standalone Experiments</span>
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date">Planned</div>
+                <h3>Phase 4: Manuscript Preparation & Thesis Writing</h3>
+                <p>
+                    Prepare manuscripts for peer-reviewed journals. 
+                    Write and defend doctoral dissertation. 
+                    Present findings at international conferences (AGU, EGU, AOGS).
+                </p>
+                <div>
+                    <span class="tag planned">Planned</span>
+                    <span class="tag">Publication</span>
+                    <span class="tag">Thesis</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+        <h2>Publications & Conference</h2>
+        <p style="color: var(--muted); margin-bottom: 24px; font-style: italic;">
+            * Under preparation — update with your actual publications
+        </p>
+        <ul class="pub-list">
+            <li>
+                <strong>[1] Brian</strong>, et al. "Coupling CoSiNE Biogeochemical Module with CESM2: 
+                Implementation and Preliminary Validation"<br>
+                <span class="authors">Brian, Co-author A, Co-author B</span><br>
+                <span class="journal">In preparation · Target: Journal of Advances in Modeling Earth Systems (JAMES)</span>
+            </li>
+            <li>
+                <strong>[2] Brian</strong>, et al. "Sensitivity of Marine Primary Production to Nutrient 
+                Limitation in a Coupled Earth System Model"<br>
+                <span class="authors">Brian, Co-author A, Co-author B</span><br>
+                <span class="journal">In preparation · Target: Biogeosciences</span>
+            </li>
+            <li>
+                <strong>Conference:</strong> AGU Fall Meeting 2025 — Poster Presentation<br>
+                <span class="journal">"CESM-CoSiNE Coupled Model: Progress and Challenges"</span>
+            </li>
+        </ul>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <div class="research-card">
+            <p>
+                <strong>📧 Email:</strong> <a href="mailto:brian@stu.xmu.edu.cn" style="color: var(--accent);">brian@stu.xmu.edu.cn</a><br>
+                <strong>📍 Address:</strong> College of Ocean and Earth Sciences, Xiamen University,<br>
+                       Xiamen, Fujian 361102, China<br>
+                <strong>🏛️ Lab:</strong> [Your Lab Name], Room XXX<br>
+                <strong>🔬 Research Group:</strong> [Your Supervisor's Group Page]
+            </p>
+            <p style="margin-top: 16px; color: var(--muted); font-size: 14px;">
+                Feel free to reach out for research collaboration, academic discussion, 
+                or questions about CESM-CoSiNE model development.
+            </p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <p>© 2026 Brian · Xiamen University · Last updated: July 2026</p>
+    <p style="margin-top: 6px; font-size: 12px; color: #9ca3af;">
+        Built with academic rigor and a cup of coffee ☕
+    </p>
+</footer>
+
+<script>
+    // Smooth scroll for navigation
+    document.querySelectorAll('nav a').forEach(link => {
+        link.addEventListener('click', e => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Animate progress bars on scroll
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.progress-fill').forEach(bar => {
+                    bar.style.width = bar.style.width; // trigger reflow
+                });
+            }
+        });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.timeline-item').forEach(item => observer.observe(item));
+</script>
+
+</body>
+</html>
