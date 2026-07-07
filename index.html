@@ -392,6 +392,32 @@
             border-top: 1px solid var(--border);
         }
 
+        /* Language Toggle */
+        .lang-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.8);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: inherit;
+            z-index: 10;
+        }
+
+        .lang-toggle:hover {
+            border-color: rgba(255,255,255,0.6);
+            color: white;
+        }
+
+        body.lang-zh .lang-en { display: none !important; }
+        body.lang-en .lang-zh { display: none !important; }
+
         /* Responsive */
         @media (max-width: 768px) {
             h1 { font-size: 32px; }
@@ -399,34 +425,39 @@
             nav a { padding: 12px 14px; font-size: 12px; }
             .research-keywords { gap: 8px; }
             section { padding: 35px 0; }
+            .lang-toggle { right: 10px; padding: 3px 8px; font-size: 12px; }
         }
     </style>
 </head>
 <body>
 
 <header>
+    <button class="lang-toggle" onclick="toggleLang()">中</button>
     <div class="header-content">
         <div class="university-badge">Xiamen University · 厦门大学</div>
         <h1>Brian</h1>
-        <div class="subtitle">Ph.D. Candidate · College of Ocean and Earth Sciences</div>
-        <div class="subtitle" style="font-size: 15px; margin-top: 4px;">博士研究生 · 海洋与地球学院</div>
+        <div class="subtitle lang-en">Ph.D. Candidate · College of Ocean and Earth Sciences</div>
+        <div class="subtitle lang-zh">博士研究生 · 海洋与地球学院</div>
         <div class="research-keywords">
             <span>CESM</span>
             <span>CoSiNE</span>
-            <span>Biogeochemical Modeling</span>
-            <span>Carbon-Nitrogen Cycling</span>
-            <span>Earth System Science</span>
+            <span class="lang-en">Biogeochemical Modeling</span>
+            <span class="lang-zh">生物地球化学建模</span>
+            <span class="lang-en">Carbon-Nitrogen Cycling</span>
+            <span class="lang-zh">碳氮循环</span>
+            <span class="lang-en">Earth System Science</span>
+            <span class="lang-zh">地球系统科学</span>
         </div>
     </div>
 </header>
 
 <nav>
     <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#progress">Progress</a></li>
-        <li><a href="#publications">Publications</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about"><span class="lang-en">About</span><span class="lang-zh">关于我</span></a></li>
+        <li><a href="#research"><span class="lang-en">Research</span><span class="lang-zh">研究方向</span></a></li>
+        <li><a href="#progress"><span class="lang-en">Progress</span><span class="lang-zh">研究进展</span></a></li>
+        <li><a href="#publications"><span class="lang-en">Publications</span><span class="lang-zh">学术成果</span></a></li>
+        <li><a href="#contact"><span class="lang-en">Contact</span><span class="lang-zh">联系方式</span></a></li>
     </ul>
 </nav>
 
@@ -434,16 +465,17 @@
 
     <!-- About -->
     <section id="about">
-        <h2>About Me</h2>
+        <h2 class="lang-en">About Me</h2>
+        <h2 class="lang-zh">关于我</h2>
         <div class="about-grid">
             <div class="profile-card">
                 <div class="avatar">B</div>
                 <h3>Brian</h3>
-                <div class="role">Ph.D. Candidate</div>
+                <div class="role lang-en">Ph.D. Candidate</div>
+                <div class="role lang-zh">博士研究生</div>
                 <div class="affiliation">
-                    College of Ocean and Earth Sciences<br>
-                    Xiamen University (XMU)<br>
-                    厦门大学 · 海洋与地球学院
+                    <span class="lang-en">College of Ocean and Earth Sciences<br>Xiamen University (XMU)</span>
+                    <span class="lang-zh">海洋与地球学院<br>厦门大学</span>
                 </div>
                 <div class="contact-links">
                     <a href="mailto:brian@stu.xmu.edu.cn">📧 brian@stu.xmu.edu.cn</a>
@@ -452,156 +484,172 @@
                 </div>
             </div>
             <div>
-                <p>
-                    I am a Ph.D. candidate at the College of Ocean and Earth Sciences, Xiamen University. 
-                    My research focuses on <strong>Earth System Modeling</strong>, specifically the coupling of the 
-                    <strong>Community Earth System Model (CESM)</strong> with the <strong>Carbon, Silicate, 
-                    Nitrogen Ecosystem (CoSiNE)</strong> model to better understand marine biogeochemical 
-                    processes and their interactions with the climate system.
-                </p>
-                <p>
-                    My work aims to improve the representation of carbon and nitrogen cycling in ocean 
-                    ecosystem models, contributing to more accurate climate projections and a deeper 
-                    understanding of the ocean's role in the global carbon cycle.
-                </p>
-                <h3>Research Interests</h3>
-                <p>
-                    🔹 Earth System Modeling & Climate Dynamics<br>
-                    🔹 Marine Biogeochemistry & Ecosystem Modeling<br>
-                    🔹 Carbon-Nitrogen-Silicate Coupling in Ocean Systems<br>
-                    🔹 Model Development, Validation & Sensitivity Analysis<br>
-                    🔹 Ocean-Atmosphere Interactions
-                </p>
+                <div class="lang-en">
+                    <p>
+                        [Your English bio here — introduce yourself, your background, and research motivation.]
+                    </p>
+                    <p>
+                        [Continue your English bio — what drives your research, what you aim to contribute.]
+                    </p>
+                </div>
+                <div class="lang-zh">
+                    <p>
+                        [你的中文自我介绍——介绍你的背景和研究动机。]
+                    </p>
+                    <p>
+                        [继续你的中文自我介绍——你的研究驱动力和目标。]
+                    </p>
+                </div>
+                <h3 class="lang-en">Research Interests</h3>
+                <h3 class="lang-zh">研究兴趣</h3>
+                <div class="lang-en">
+                    <p>
+                        🔹 [Research Interest 1]<br>
+                        🔹 [Research Interest 2]<br>
+                        🔹 [Research Interest 3]<br>
+                        🔹 [Research Interest 4]<br>
+                        🔹 [Research Interest 5]
+                    </p>
+                </div>
+                <div class="lang-zh">
+                    <p>
+                        🔹 [研究兴趣 1]<br>
+                        🔹 [研究兴趣 2]<br>
+                        🔹 [研究兴趣 3]<br>
+                        🔹 [研究兴趣 4]<br>
+                        🔹 [研究兴趣 5]
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Research -->
     <section id="research">
-        <h2>Research Focus</h2>
+        <h2 class="lang-en">Research Focus</h2>
+        <h2 class="lang-zh">研究方向</h2>
 
         <div class="research-card">
-            <h3><span class="icon">🌊</span> CESM-CoSiNE Coupling</h3>
-            <p>
-                The core of my doctoral research: coupling the <strong>Community Earth System Model (CESM)</strong> 
-                with the <strong>CoSiNE (Carbon, Silicate, Nitrogen Ecosystem)</strong> biogeochemical module. 
-                This coupled framework enables comprehensive simulation of marine ecosystem dynamics, 
-                including phytoplankton growth, nutrient cycling, and carbon export in the ocean.
-            </p>
-            <h3>Key Objectives</h3>
-            <p>
-                ① <strong>Model Coupling</strong> — Integrating CoSiNE into CESM's ocean component (POP/MPAS) 
-                to replace or complement the default marine biogeochemistry module.<br><br>
-                ② <strong>Parameter Optimization</strong> — Calibrating ecosystem parameters against 
-                satellite observations (SeaWiFS, MODIS) and in-situ datasets (BGC-Argo, GEOTRACES).<br><br>
-                ③ <strong>Process Understanding</strong> — Investigating how nutrient limitation (N, Si, Fe) 
-                controls primary production and the biological carbon pump across different ocean basins.<br><br>
-                ④ <strong>Climate Sensitivity</strong> — Assessing how marine biogeochemical feedbacks 
-                influence climate projections under various emission scenarios (SSP).
-            </p>
+            <h3><span class="icon">🌊</span> <span class="lang-en">[Project Title]</span><span class="lang-zh">[项目标题]</span></h3>
+            <div class="lang-en">
+                <p>[Describe your main research project in English — what you study, why it matters, and your approach.]</p>
+                <h3>Key Objectives</h3>
+                <p>
+                    ① [Objective 1]<br><br>
+                    ② [Objective 2]<br><br>
+                    ③ [Objective 3]<br><br>
+                    ④ [Objective 4]
+                </p>
+            </div>
+            <div class="lang-zh">
+                <p>[用中文描述你的主要研究项目——研究内容、意义和方法。]</p>
+                <h3>核心目标</h3>
+                <p>
+                    ① [目标 1]<br><br>
+                    ② [目标 2]<br><br>
+                    ③ [目标 3]<br><br>
+                    ④ [目标 4]
+                </p>
+            </div>
         </div>
 
         <div class="research-card">
-            <h3><span class="icon">🧮</span> Technical Stack</h3>
-            <p>
-                <strong>Models:</strong> CESM2 / CoSiNE / POP2<br>
-                <strong>Languages:</strong> Fortran, Python, NCL, CDO/NCO<br>
-                <strong>Platforms:</strong> Linux HPC (Slurm/PBS), NCAR Cheyenne/Casper<br>
-                <strong>Data:</strong> NetCDF, HDF5, satellite remote sensing products<br>
-                <strong>Visualization:</strong> Matplotlib, Cartopy, NCL, Ferret
-            </p>
+            <h3><span class="icon">🧮</span> <span class="lang-en">Technical Stack</span><span class="lang-zh">技术栈</span></h3>
+            <div class="lang-en">
+                <p>
+                    <strong>Models:</strong> [Model names]<br>
+                    <strong>Languages:</strong> [Programming languages]<br>
+                    <strong>Platforms:</strong> [HPC platforms]<br>
+                    <strong>Data:</strong> [Data formats & sources]<br>
+                    <strong>Visualization:</strong> [Visualization tools]
+                </p>
+            </div>
+            <div class="lang-zh">
+                <p>
+                    <strong>模型：</strong>[模型名称]<br>
+                    <strong>语言：</strong>[编程语言]<br>
+                    <strong>平台：</strong>[计算平台]<br>
+                    <strong>数据：</strong>[数据格式与来源]<br>
+                    <strong>可视化：</strong>[可视化工具]
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- Progress -->
     <section id="progress">
-        <h2>Research Progress</h2>
+        <h2 class="lang-en">Research Progress</h2>
+        <h2 class="lang-zh">研究进展</h2>
 
         <div class="timeline">
             <div class="timeline-item">
-                <div class="timeline-date">2024 – Present</div>
-                <h3>Phase 3: Coupled Model Validation & Sensitivity Experiments</h3>
-                <p>
-                    Running long-term simulations under historical and projected climate scenarios. 
-                    Conducting sensitivity analysis on key biogeochemical parameters. 
-                    Validating model outputs against observational climatologies.
-                </p>
+                <div class="timeline-date">[Year] – Present</div>
+                <h3 class="lang-en">[Current Phase Title]</h3>
+                <h3 class="lang-zh">[当前阶段标题]</h3>
+                <div class="lang-en">
+                    <p>[Describe your current research phase in English.]</p>
+                </div>
+                <div class="lang-zh">
+                    <p>[用中文描述你当前的研究阶段。]</p>
+                </div>
                 <div class="progress-container">
                     <div class="progress-label">
-                        <span>Overall Progress</span>
-                        <span>45%</span>
+                        <span class="lang-en">Overall Progress</span>
+                        <span class="lang-zh">总体进度</span>
+                        <span>[%]</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 45%"></div>
+                        <div class="progress-fill" style="width: [%]"></div>
                     </div>
                 </div>
                 <div>
-                    <span class="tag in-progress">In Progress</span>
-                    <span class="tag">Sensitivity Analysis</span>
-                    <span class="tag">Model Validation</span>
+                    <span class="tag in-progress">In Progress / 进行中</span>
+                    <span class="tag">[Tag 1]</span>
+                    <span class="tag">[Tag 2]</span>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">2023 – 2024</div>
-                <h3>Phase 2: CESM-CoSiNE Coupling Implementation</h3>
-                <p>
-                    Successfully coupled CoSiNE biogeochemical module into CESM2 framework. 
-                    Implemented nutrient cycling pathways (C-N-Si-Fe). 
-                    Debugged and resolved coupling interface issues between ocean physics and biogeochemistry.
-                </p>
+                <div class="timeline-date">[Year Range]</div>
+                <h3 class="lang-en">[Previous Phase Title]</h3>
+                <h3 class="lang-zh">[过往阶段标题]</h3>
+                <div class="lang-en">
+                    <p>[Describe this phase in English.]</p>
+                </div>
+                <div class="lang-zh">
+                    <p>[用中文描述这个阶段。]</p>
+                </div>
                 <div class="progress-container">
                     <div class="progress-label">
-                        <span>Completion</span>
-                        <span>100%</span>
+                        <span class="lang-en">Completion</span>
+                        <span class="lang-zh">完成度</span>
+                        <span>[%]</span>
                     </div>
                     <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%"></div>
+                        <div class="progress-fill" style="width: [%]"></div>
                     </div>
                 </div>
                 <div>
-                    <span class="tag completed">Completed</span>
-                    <span class="tag">Model Coupling</span>
-                    <span class="tag">Fortran Development</span>
+                    <span class="tag completed">Completed / 已完成</span>
+                    <span class="tag">[Tag 1]</span>
+                    <span class="tag">[Tag 2]</span>
                 </div>
             </div>
 
             <div class="timeline-item">
-                <div class="timeline-date">2022 – 2023</div>
-                <h3>Phase 1: Literature Review & Standalone CoSiNE Calibration</h3>
-                <p>
-                    Comprehensive review of marine biogeochemical models and CESM architecture. 
-                    Ran standalone CoSiNE experiments to understand ecosystem dynamics and parameter 
-                    sensitivities before coupling.
-                </p>
-                <div class="progress-container">
-                    <div class="progress-label">
-                        <span>Completion</span>
-                        <span>100%</span>
-                    </div>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 100%"></div>
-                    </div>
+                <div class="timeline-date">Planned / 计划中</div>
+                <h3 class="lang-en">[Planned Phase Title]</h3>
+                <h3 class="lang-zh">[计划阶段标题]</h3>
+                <div class="lang-en">
+                    <p>[Describe planned work in English.]</p>
+                </div>
+                <div class="lang-zh">
+                    <p>[用中文描述计划中的工作。]</p>
                 </div>
                 <div>
-                    <span class="tag completed">Completed</span>
-                    <span class="tag">Literature Review</span>
-                    <span class="tag">Standalone Experiments</span>
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <div class="timeline-date">Planned</div>
-                <h3>Phase 4: Manuscript Preparation & Thesis Writing</h3>
-                <p>
-                    Prepare manuscripts for peer-reviewed journals. 
-                    Write and defend doctoral dissertation. 
-                    Present findings at international conferences (AGU, EGU, AOGS).
-                </p>
-                <div>
-                    <span class="tag planned">Planned</span>
-                    <span class="tag">Publication</span>
-                    <span class="tag">Thesis</span>
+                    <span class="tag planned">Planned / 计划中</span>
+                    <span class="tag">[Tag 1]</span>
+                    <span class="tag">[Tag 2]</span>
                 </div>
             </div>
         </div>
@@ -609,58 +657,114 @@
 
     <!-- Publications -->
     <section id="publications">
-        <h2>Publications & Conference</h2>
-        <p style="color: var(--muted); margin-bottom: 24px; font-style: italic;">
-            * Under preparation — update with your actual publications
-        </p>
-        <ul class="pub-list">
-            <li>
-                <strong>[1] Brian</strong>, et al. "Coupling CoSiNE Biogeochemical Module with CESM2: 
-                Implementation and Preliminary Validation"<br>
-                <span class="authors">Brian, Co-author A, Co-author B</span><br>
-                <span class="journal">In preparation · Target: Journal of Advances in Modeling Earth Systems (JAMES)</span>
-            </li>
-            <li>
-                <strong>[2] Brian</strong>, et al. "Sensitivity of Marine Primary Production to Nutrient 
-                Limitation in a Coupled Earth System Model"<br>
-                <span class="authors">Brian, Co-author A, Co-author B</span><br>
-                <span class="journal">In preparation · Target: Biogeosciences</span>
-            </li>
-            <li>
-                <strong>Conference:</strong> AGU Fall Meeting 2025 — Poster Presentation<br>
-                <span class="journal">"CESM-CoSiNE Coupled Model: Progress and Challenges"</span>
-            </li>
-        </ul>
+        <h2 class="lang-en">Publications & Conference</h2>
+        <h2 class="lang-zh">学术成果</h2>
+        <div class="lang-en">
+            <p style="color: var(--muted); margin-bottom: 24px; font-style: italic;">
+                * Update with your actual publications
+            </p>
+            <ul class="pub-list">
+                <li>
+                    <strong>[1]</strong> [Your Name], et al. "[Paper Title]"<br>
+                    <span class="authors">[Author list]</span><br>
+                    <span class="journal">[Journal name, year]</span>
+                </li>
+                <li>
+                    <strong>[2]</strong> [Your Name], et al. "[Paper Title]"<br>
+                    <span class="authors">[Author list]</span><br>
+                    <span class="journal">[Journal name, year]</span>
+                </li>
+                <li>
+                    <strong>Conference:</strong> [Conference name] — [Presentation type]<br>
+                    <span class="journal">"[Presentation title]"</span>
+                </li>
+            </ul>
+        </div>
+        <div class="lang-zh">
+            <p style="color: var(--muted); margin-bottom: 24px; font-style: italic;">
+                * 请填写你的实际学术成果
+            </p>
+            <ul class="pub-list">
+                <li>
+                    <strong>[1]</strong> [你的名字] 等. 「[论文标题]」<br>
+                    <span class="authors">[作者列表]</span><br>
+                    <span class="journal">[期刊名称，年份]</span>
+                </li>
+                <li>
+                    <strong>[2]</strong> [你的名字] 等. 「[论文标题]」<br>
+                    <span class="authors">[作者列表]</span><br>
+                    <span class="journal">[期刊名称，年份]</span>
+                </li>
+                <li>
+                    <strong>会议：</strong>[会议名称] — [报告形式]<br>
+                    <span class="journal">「[报告标题]」</span>
+                </li>
+            </ul>
+        </div>
     </section>
 
     <!-- Contact -->
     <section id="contact">
-        <h2>Contact</h2>
+        <h2 class="lang-en">Contact</h2>
+        <h2 class="lang-zh">联系方式</h2>
         <div class="research-card">
-            <p>
-                <strong>📧 Email:</strong> <a href="mailto:brian@stu.xmu.edu.cn" style="color: var(--accent);">brian@stu.xmu.edu.cn</a><br>
-                <strong>📍 Address:</strong> College of Ocean and Earth Sciences, Xiamen University,<br>
-                       Xiamen, Fujian 361102, China<br>
-                <strong>🏛️ Lab:</strong> [Your Lab Name], Room XXX<br>
-                <strong>🔬 Research Group:</strong> [Your Supervisor's Group Page]
-            </p>
-            <p style="margin-top: 16px; color: var(--muted); font-size: 14px;">
-                Feel free to reach out for research collaboration, academic discussion, 
-                or questions about CESM-CoSiNE model development.
-            </p>
+            <div class="lang-en">
+                <p>
+                    <strong>📧 Email:</strong> <a href="mailto:brian@stu.xmu.edu.cn" style="color: var(--accent);">brian@stu.xmu.edu.cn</a><br>
+                    <strong>📍 Address:</strong> College of Ocean and Earth Sciences, Xiamen University,<br>
+                           Xiamen, Fujian 361102, China<br>
+                    <strong>🏛️ Lab:</strong> [Your Lab Name], Room XXX<br>
+                    <strong>🔬 Research Group:</strong> [Your Supervisor's Group Page]
+                </p>
+                <p style="margin-top: 16px; color: var(--muted); font-size: 14px;">
+                    Feel free to reach out for research collaboration, academic discussion, 
+                    or questions about your research area.
+                </p>
+            </div>
+            <div class="lang-zh">
+                <p>
+                    <strong>📧 邮箱：</strong> <a href="mailto:brian@stu.xmu.edu.cn" style="color: var(--accent);">brian@stu.xmu.edu.cn</a><br>
+                    <strong>📍 地址：</strong> 厦门市翔安区厦门大学海洋与地球学院<br>
+                    <strong>🏛️ 实验室：</strong>[实验室名称]，[房间号]<br>
+                    <strong>🔬 课题组：</strong>[导师课题组主页]
+                </p>
+                <p style="margin-top: 16px; color: var(--muted); font-size: 14px;">
+                    欢迎联系交流合作、学术讨论或相关研究问题。
+                </p>
+            </div>
         </div>
     </section>
 
 </main>
 
 <footer>
-    <p>© 2026 Brian · Xiamen University · Last updated: July 2026</p>
+    <p class="lang-en">© 2026 Brian · Xiamen University · Last updated: July 2026</p>
+    <p class="lang-zh">© 2026 Brian · 厦门大学 · 最后更新：2026年7月</p>
     <p style="margin-top: 6px; font-size: 12px; color: #9ca3af;">
-        Built with academic rigor and a cup of coffee ☕
+        <span class="lang-en">Built with academic rigor and a cup of coffee ☕</span>
+        <span class="lang-zh">以学术严谨和一杯咖啡建成 ☕</span>
     </p>
 </footer>
 
 <script>
+    // Language toggle
+    function toggleLang() {
+        const body = document.body;
+        const current = body.classList.contains('lang-zh') ? 'zh' : 'en';
+        const next = current === 'zh' ? 'en' : 'zh';
+        body.classList.remove('lang-zh', 'lang-en');
+        body.classList.add('lang-' + next);
+        localStorage.setItem('lang', next);
+        document.querySelector('.lang-toggle').textContent = next === 'zh' ? '中' : 'EN';
+    }
+
+    // Initialize language from localStorage
+    (function() {
+        const saved = localStorage.getItem('lang') || 'en';
+        document.body.classList.add('lang-' + saved);
+        document.querySelector('.lang-toggle').textContent = saved === 'zh' ? '中' : 'EN';
+    })();
+
     // Smooth scroll for navigation
     document.querySelectorAll('nav a').forEach(link => {
         link.addEventListener('click', e => {
