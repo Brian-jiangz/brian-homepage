@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://brian-jiangz.github.io/brian-homepage/sitemap.xml
